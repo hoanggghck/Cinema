@@ -1,0 +1,199 @@
+<div>
+  <app-header-admin></app-header-admin>
+  <div class="menu_bar">
+    <div class="menu_nav menu_nav_content" *ngIf="menuStatus">
+      <aside>
+        <div id="sidebar" class="nav-collapse">
+          <div class="sidebar_item " [ngStyle]="{'background-color':menuType === 'DashBoard'? '#3b363a': '#5d4f59'}"(click)="MenuChoose('DashBoard')">
+            <a >
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </div>
+          <div class="sidebar_item" [ngStyle]="{'background-color':menuType === 'User'? '#3b363a': '#5d4f59'}" (click)="MenuChoose('User')">
+            <a class="" >
+              <i class="fa fa-user"></i>
+              <span>User Manager </span>
+            </a>
+          </div>
+          <div class="sidebar_item" [ngStyle]="{'background-color':menuType === 'Film'? '#3b363a': '#5d4f59'}" (click)="MenuChoose('Film')">
+            <a >
+              <i class="fa fa-film"></i>
+              <span>Film Manager</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="menu_content" [ngSwitch]="menuType">
+      <div *ngSwitchCase="'DashBoard'" class="menu_content_item ">
+        <div class="row " style="margin-left: 100px ">
+          <div class="menu_item item1">
+            <div class="row">
+              <div class="col-md-4 market-update-right">
+                <i class="fa fa-eye"> </i>
+              </div>
+              <div class="col-md-8 market-update-left">
+                <h4>Visitors</h4>
+                <h3>13,500</h3>
+                <p>Other hand, we denounce</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="menu_item  item2">
+            <div class="row">
+              <div class="col-md-4 market-update-right">
+                <i class="fa fa-user"> </i>
+              </div>
+              <div class="col-md-8 market-update-left">
+                <h4>Users</h4>
+                <h3>1,250</h3>
+                <p>Other hand, we denounce</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="menu_item  item3">
+            <div class="row">
+              <div class="col-md-4 market-update-right">
+                <i class="fa fa-usd"> </i>
+              </div>
+              <div class="col-md-8 market-update-left">
+                <h4>Sales</h4>
+                <h3>1,500</h3>
+                <p>Other hand, we denounce</p>
+              </div>
+            </div>
+
+          </div>
+         
+        </div>
+        <div class="agileits-w3layouts-stats">
+          <div class="row">
+              <div class="col-md-4 stats-info widget">
+                  <div class="stats-info-agileits">
+                    <div class="stats-title">
+                      <h4 class="title">Browser Stats</h4>
+                    </div>
+                    <div class="stats-body">
+                      <ul class="list-unstyled">
+                        <li>GoogleChrome <span class="pull-right">85%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar green" style="width:85%;"></div> 
+                          </div>
+                        </li>
+                        <li>Firefox <span class="pull-right">35%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar yellow" style="width:35%;"></div>
+                          </div>
+                        </li>
+                        <li>Internet Explorer <span class="pull-right">78%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar red" style="width:78%;"></div>
+                          </div>
+                        </li>
+                        <li>Safari <span class="pull-right">50%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar blue" style="width:50%;"></div>
+                          </div>
+                        </li>
+                        <li>Opera <span class="pull-right">80%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar light-blue" style="width:80%;"></div>
+                          </div>
+                        </li>
+                        <li class="last">Others <span class="pull-right">60%</span>  
+                          <div class="progress progress-striped active progress-right">
+                            <div class="bar orange" style="width:60%;"></div>
+                          </div>
+                        </li> 
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 stats-info stats-last widget-shadow">
+                  <div class="stats-last-agile">
+                    <table class="table stats-table ">
+                      <thead>
+                        <tr>
+                          <th>S.NO</th>
+                          <th>PRODUCT</th>
+                          <th>STATUS</th>
+                          <th>PROGRESS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Lorem ipsum</td>
+                          <td><span class="label label-success">In progress</span></td>
+                          <td><h5>85% <i class="fa fa-level-up"></i></h5></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Aliquam</td>
+                          <td><span class="label label-warning">New</span></td>
+                          <td><h5>35% <i class="fa fa-level-up"></i></h5></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Lorem ipsum</td>
+                          <td><span class="label label-danger">Overdue</span></td>
+                          <td><h5 class="down">40% <i class="fa fa-level-down"></i></h5></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Aliquam</td>
+                          <td><span class="label label-info">Out of stock</span></td>
+                          <td><h5>100% <i class="fa fa-level-up"></i></h5></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Lorem ipsum</td>
+                          <td><span class="label label-success">In progress</span></td>
+                          <td><h5 class="down">10% <i class="fa fa-level-down"></i></h5></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td>Aliquam</td>
+                          <td><span class="label label-warning">New</span></td>
+                          <td><h5>38% <i class="fa fa-level-up"></i></h5></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+          </div>
+					
+					
+				</div>
+        
+      </div>
+      <div *ngSwitchCase="'User'" class="menu_content_item ">
+          <app-quan-ly-nguoi-dung></app-quan-ly-nguoi-dung>
+      </div>
+      <div *ngSwitchCase="'Film'" class="menu_content_item ">
+          <app-quan-ly-phim></app-quan-ly-phim>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- <div class="tab-content">
+  <div class="tab-pane active" id="user">
+    <div class="container">
+        <app-quan-ly-nguoi-dung></app-quan-ly-nguoi-dung>
+    </div>
+    
+  </div>
+  <div class="tab-pane  fade" id="film">
+    <div class="container">
+        <app-quan-ly-phim></app-quan-ly-phim>
+    </div>
+    
+  </div>
+  <div class="tab-pane  fade" id="wed">...</div>
+</div> -->
+

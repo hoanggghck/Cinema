@@ -1,0 +1,18 @@
+.content ul{
+    display: inline-flex;
+}
+.content ul li{
+    text-decoration: none;
+    list-style: none;
+    font-size: 23px;
+    cursor: pointer;
+}
+.content ul li:hover{
+    color: #FB4226;
+    font-size: 28px;
+    transition: all 0.5s;
+}
+.li_content{
+    color: #FB4226;
+}
+

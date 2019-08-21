@@ -1,0 +1,20 @@
+<div class="row combo_item" style="margin-right: unset;margin-left: unset;">
+  <img class="item_img" [src]="combo.image" alt="">
+  <button [id]="setIDButton(combo.id)" (click)="Showdetail(combo.id)" class="btn_detail col-1" data-toggle="collapse"
+    data-target=""><img src="../../../assets/img/details.png" alt=""></button>
+
+  <div class="item_content">
+    <p>{{combo.tittle}}</p>
+    <span>{{combo.price}} VNĐ</span>
+  </div>
+  <div class="item_button"> 
+    <button class="minus" (click)="desComBo()">-</button>
+    <span>{{combo.quantity}}</span>
+    <button class="plus" (click)="addComBo()">+</button>
+  </div>
+</div>
+<div [id]="combo.id" class="item_detail collapse">
+  <div class="card card-body">
+    {{combo.details}}
+  </div>
+</div>

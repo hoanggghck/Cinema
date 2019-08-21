@@ -1,0 +1,36 @@
+.new__item {
+    display: block;
+    position: relative;
+    height: 100%;
+}
+.new__item img{
+   height: 100%;
+    width: 100%;
+}
+.new__item .overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    padding:0 15px;
+    background: rgba(0,0,0,0.2)
+}
+h2{
+    font-size: 20px;
+}
+figure.effect-ruby h2{
+    margin:0
+}
+figure.effect-ruby p{
+    padding:1em 0.3rem;
+}
+@media only screen and (max-width: 1024px){
+    .grid figure{
+        min-width: 300px;
+        // min-height: 200px;
+    }
+    figcaption{
+        // display: none;
+    }
+  }

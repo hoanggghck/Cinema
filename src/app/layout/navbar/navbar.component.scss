@@ -1,0 +1,169 @@
+//Navbar
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    padding:0 20px;
+    height: 70px;
+    z-index: 1000;
+    background-color:white;
+}
+.logo img{
+    width: 60px;
+}
+.header__menu ul{
+    list-style: none;
+}
+.movie__item p{
+    font-size:17px;
+}
+.header__menu ul li{
+    display: inline;
+    margin:0 10px;
+    
+}
+v
+.header__menu ul li:hover a {
+    color:#FB4226;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.login_button{
+    padding: 10px 20px;
+    background-color: unset;
+    border: unset;
+    color: black;
+    font-size: 20px;
+}
+.login_button:hover{
+    color: #FB4226;
+    transition:  all 0.5s;
+    -webkit-transition:  all 0.5s;
+    -moz-transition:  all 0.5s;
+    -ms-transition:  all 0.5s;
+    -o-transition:  all 0.5s;
+}
+.login_button:hover i{
+    color: #FB4226;
+    transition:  all 0.5s;
+    -webkit-transition:  all 0.5s;
+    -moz-transition:  all 0.5s;
+    -ms-transition:  all 0.5s;
+    -o-transition:  all 0.5s;
+}
+.login_button:focus{
+    outline: unset;
+}
+.login_button i{
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 20px;
+    color: black;
+}
+.logout_button{
+
+}
+//Login Model
+.modal{
+    background-color: rgba(0,0,0,0.2);
+}
+.modal-header{
+    border: unset;
+
+}
+.modal-header h5{
+    //margin-left: 170px;
+    font-size: 25px;
+    color: rgb(107, 105, 105)
+    
+}
+.modal-header button{
+    font-size: 25px;
+}
+.box input{
+    background: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px 30px;
+    width: 300px;
+    outline: none;
+    color: #2ecc71;
+    border-radius: 24px;
+    transition: 0.25s;
+    border: 2px solid #2ecc71;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -o-transition: 0.25s;
+}
+  .box input:focus{
+    width: 280px;
+    box-shadow: unset;
+  }
+   .btn_btn{
+    background: none;
+    border: 2px solid #2ecc71;
+    outline: none;
+    border-radius: 24px;
+    cursor: pointer;
+    color: #6C757D;
+}
+  .btn_btn:disabled {
+    opacity: 1;
+    }
+   .btn_btn:hover{
+    background: #2ecc71;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+  .btn_btn{
+      width: 140px;
+  }
+  .form_select{
+    margin: 0 auto;
+    width: 300px;
+    padding: 0;
+  }
+  .form_select select{
+    border: 2px solid #3498db;
+    border-radius: 24px;
+
+  }
+  .form_select select option{
+    border: unset;
+  }
+
+.errors{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 14px 30px;
+    width: 300px;
+    transition: 0.25s;
+}
+
+input.ng-invalid{
+    border-left: 5px solid red;
+} 
+input.ng-valid{
+    border-left: 5px solid green;
+}
+@media only screen and (max-width: 480px){
+    .header__menu {
+        display: none
+       
+    }
+}
+  

@@ -1,0 +1,23 @@
+<div class="row" style="margin-bottom:50px">
+  <div class="col-12 text-center content">
+    <ul [ngSwitch]="loaiTin"> 
+      <li class="mr-4 " [ngStyle]="{'color':loaiTin === 'DienAnh'? '#FB4226': 'white'}" (click)="ChonLoaiTin('DienAnh')"><span>ĐIỆN ẢNH</span></li>
+      <li class="mr-4" [ngStyle]="{'color':loaiTin === 'Review'? '#FB4226': 'white'}" (click)="ChonLoaiTin('Review')"><span>REVIEW</span></li>
+      <li class="" [ngStyle]="{'color':loaiTin === 'KhuyenMai'? '#FB4226': 'white'}" (click)="ChonLoaiTin('KhuyenMai')"><span>KHUYẾN MÃI</span></li>
+    </ul>
+    
+    <!-- <button class="btn btn-success mr-2 " (click)="ChonLoaiTin('DienAnh')">Dien Anh</button>
+    <button class="btn mr-2" (click)="ChonLoaiTin('Review')">Review</button>
+    <button class="btn" (click)="ChonLoaiTin('KhuyenMai')">Khuyen Mai</button> -->
+  </div>
+  <div class="row" [ngSwitch]="loaiTin">
+    <div *ngSwitchCase="'DienAnh'" class="col-12">
+      <app-dien-anh></app-dien-anh>
+    </div>
+    <div *ngSwitchCase="'Review'" class="col-12">
+      <app-review></app-review>
+    </div>
+    <div *ngSwitchCase="'KhuyenMai'" class="col-12">
+      <app-khuyen-mai></app-khuyen-mai>
+    </div>
+  </div>

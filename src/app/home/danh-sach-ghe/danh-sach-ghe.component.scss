@@ -1,0 +1,59 @@
+.myTheater{
+    margin: 0 auto;
+}
+.screen{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.ghe_id{
+    margin-left: 23%;
+}
+.ghe_id p{
+    font-size: 15px;
+    font-weight: 500;
+}
+.note{
+    width: 60%;
+    margin: 0 auto;
+}
+.note_content{
+    display: flex;
+    justify-content: center;
+
+}
+.note button{
+    width: 30px;
+    height: 30px;
+}
+.btn_dadat {
+    background-color: green;
+}
+.btn_disable{
+    background-color: black;
+    padding: 2px 5px;
+}
+    
+
+.btn_chuadat{
+    background-color: #cecece;
+}
+//Responsive
+@media only screen and (max-width: 480px){
+   .note_content{
+       width: 100%;
+       margin: 0;
+   }
+   .myTheater{
+       width: 100%;
+   }
+   #ghe_location{
+    flex: 0 0 83.333333%;
+    max-width: 75%;
+   }
+   .ghe_id{
+    margin-left: 9%;
+    flex: none;
+   }
+   
+}

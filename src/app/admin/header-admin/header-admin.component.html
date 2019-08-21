@@ -1,0 +1,48 @@
+<header id="dashboard_nav">
+  <div class="brand">
+    <a href="index.html" class="logo">
+      Admin
+    </a>
+    <div class="sidebar-toggle-box">
+      <div class="fa fa-bars" (click)="StatusChange()"></div>
+    </div>
+  </div>
+  <div class="noti_right">
+    <ul class="nav top-menu top_menu">
+      <li class="dropdown">
+        <a data-toggle="dropdown" href="#">
+          <i class="fa fa-tasks"></i>
+          <span class="badge bg-success"></span>
+        </a>
+      </li>
+      <li id="header_inbox_bar" class="dropdown">
+        <a data-toggle="dropdown" href="#">
+          <i class="fa fa-envelope-o"></i>
+          <span class="badge bg-important"></span>
+        </a>
+      </li>
+      <li id="header_notification_bar" class="dropdown">
+        <a data-toggle="dropdown" href="#">
+          <i class="fa fa-bell-o"></i>
+          <span class="badge bg-warning"></span>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav pull-right top-menu menu2">
+      <li>
+        <input type="text" class="form-control search" placeholder=" Search">
+      </li>
+      <!-- user login dropdown start-->
+      <li class="dropdown dropdown_user">
+        <a class="dangXuat" data-toggle="dropdown"  (click)="dangXuat()">
+          <img alt="" src="">
+          <span class="username">{{name}}</span>
+          <b class="caret"></b>
+        </a>
+
+      </li>
+      <!-- user login dropdown end -->
+
+    </ul>
+  </div>
+</header>

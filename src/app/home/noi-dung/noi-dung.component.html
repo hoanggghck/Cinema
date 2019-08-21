@@ -1,0 +1,30 @@
+<div class=" myDetail">
+  <div class="detail_background">
+    <div class="bgr_img">
+      <img src="{{phim.HinhAnh}}" alt="">
+    </div>
+    <div class="bgr_color"></div>
+  </div>
+  <div class="detail_detail" *ngIf="isShowContent">
+      <div class="row" >
+          <div class=" detail_img">
+            <img src={{phim.HinhAnh}} alt="">
+          </div>
+          <div class="col-8 detail_content">
+            <span>{{phim.NgayKhoiChieu | date: 'dd.MM.yyyy'}}</span>
+            <h1>{{phim.TenPhim}}</h1>
+            <p>{{phim.MoTa}}</p>
+            <button (click)="scrollToElement(target)" class="btn btn-danger" >Mua Vé</button>
+          </div>
+        </div>
+  </div>
+  
+  <div class="button_booking" #target >
+    <h1>LỊCH CHIẾU</h1>
+      <button class="btn  mt-2 mr-2" [routerLink]="['/home/trang-dat-ve',lichchieu.MaLichChieu]"
+      *ngFor="let lichchieu of phim.LichChieu">
+      {{lichchieu.NgayChieuGioChieu| date:'dd/MM'}}
+    </button>
+  </div>
+  
+</div>

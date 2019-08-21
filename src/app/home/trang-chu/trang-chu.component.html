@@ -1,0 +1,23 @@
+<app-navbar (selectEmit)="scrollToElement($event)"></app-navbar>
+<div style="margin-bottom: -24px">
+    <app-slider></app-slider>
+</div>
+<div class="container search">
+    <app-tim-kiem></app-tim-kiem>
+</div>
+<div class="myListFilm" id="LichChieu">
+    <div class="container">
+        <app-loai-phim></app-loai-phim>
+    </div>
+</div>
+<div class="myListNews" style="padding: 50px 0" >
+    <div class="container" id="TinTuc">
+        <app-tin-tuc></app-tin-tuc>
+    </div>
+</div>
+<div id="UngDung">
+    <app-ung-dung></app-ung-dung>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,133 @@
+.myBookingpage{
+   display: flex;
+   margin-top: 30px;
+   
+}
+.myChair{
+    width: 70%;
+    margin-top: 50px;
+}
+.myPay{
+    // position: relative;
+    padding-top: 30px ;
+    width: 30%; 
+    margin-right: 50px;
+}
+.pay_total {
+    border-bottom: dotted 4px black;
+    margin-bottom: 10px;
+}
+.pay_total h1{
+    color :#4CAF50;
+    text-align: center;
+}
+.myBooked button{
+    // position: absolute;
+    // bottom: 0;
+    width: 100%;
+    font-size: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0;
+
+}
+.movie_details{
+    height: 220px;
+}
+.movie_img{
+    margin-left: 20px;
+    width: 150px;
+    height: 200px;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,.5);
+
+}
+.movie_img img{
+    width: 150px;
+    height: 200px;
+}
+.movie_title{
+    padding: 10px 10px;
+    width: 240px;
+}
+.movie_title span{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(83, 30, 35);
+    
+}
+.movie_title h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(88, 65, 67);
+}
+.movie_title p{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.time {
+    margin-top: 100px
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    padding:0 20px;
+    height: 70px;
+    z-index: 1000;
+    background-color:white;
+}
+.logo img{
+    width: 60px;
+}
+.header__menu ul{
+    list-style: none;
+}
+.movie__item p{
+    font-size:17px;
+}
+.header__menu ul li{
+    display: inline;
+    margin:0 10px;
+    
+}
+.header__menu ul li a{
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+.header__menu ul li:hover a {
+    color:#FB4226;
+    transition: all 0.5s;
+}
+.login_button{
+    padding: 10px 20px;
+    background-color: unset;
+    border: unset;
+    color: black;
+    font-size: 20px;
+}
+//Responsive
+@media only screen and (max-width: 480px){
+    #Chair{
+        width: 100%;
+    }
+    .myBookingpage{
+        display: unset;
+    }
+    .myPay{
+     
+        display: block;
+        width: 100%;
+    }
+    .header__menu{
+        display: none;
+    }
+}

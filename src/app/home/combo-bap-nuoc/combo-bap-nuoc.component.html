@@ -1,0 +1,15 @@
+<div class="myCombo">
+  <div class="combo_tittle" data-toggle="collapse" data-target="#combo">
+    <h1>Chọn Combo</h1>
+    <i class="fa fa-cart-arrow-down"></i>
+  </div>
+
+  <div class="combo_list collapse" id="combo">
+    <app-item-combo *ngFor=" let combo of DanhSachCombo" [combo]="combo" (emitComboIns)="addToCart($event)"
+      (emitComboDes)="desToCart($event)"></app-item-combo>
+  </div>
+  <div class="ml-3 my-auto" *ngFor="let item of DanhSachDat">
+    <span><i class="fa fa-star" aria-hidden="true"></i> {{item.details}}. <span>Số lượng:
+        {{item.quantity}}</span></span>
+  </div>
+</div>

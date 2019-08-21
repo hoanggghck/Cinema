@@ -1,0 +1,24 @@
+<div class="myFilmList">
+  <div class="row my-4">
+    <div class="col-12 text-center">
+      <ul>
+        <li class=" mr-4"  [ngClass]="{'li_content':dangchieuStatus}" (click)="HienPhimDangChieu()"><span>ĐANG CHIẾU</span></li>
+        <li class="" [ngClass]="{'li_content':!dangchieuStatus}" (click)="HienPhimSapChieu()"><span>SẮP CHIẾU</span></li>
+      </ul>
+      <!-- <button class="btn mr-2 " [ngClass]="{'button_content':dangchieuStatus}" (click)="HienPhimDangChieu()">Đang Chiếu</button>
+      <button class="btn " [ngClass]="{'button_content':!dangchieuStatus}" (click)="HienPhimSapChieu()">Sắp Chiếu</button> -->
+  
+    </div>
+  </div>
+  <div class="row">
+    <div class="list_film " *ngIf="dangchieuStatus; else PhimSapChieu">
+      <app-phim-dang-chieu></app-phim-dang-chieu>
+    </div>
+    <ng-template #PhimSapChieu>
+        <div class="list_film2" >
+            <app-phim-sap-chieu></app-phim-sap-chieu>
+          </div>
+    </ng-template>
+    
+  </div>
+</div>

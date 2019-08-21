@@ -1,0 +1,7 @@
+
+  <button *ngIf="!gheStatus"class="btn btn_chuadat mr-1 mb-2"
+  [ngClass]="{'btn_dadat':status,'btn_chuadat':!status}"
+  (click)="datGhe()"></button>
+  <button *ngIf="gheStatus"class="btn btn_disable  mr-1 mb-2" disabled>
+    <img src="../../../assets/img/xController.png" alt="">
+  </button>

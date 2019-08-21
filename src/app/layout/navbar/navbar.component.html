@@ -1,0 +1,126 @@
+<header id="header">
+  <a [routerLink]="['/home']" class="logo">
+    <img src="../../../assets/img/web-logo.png" alt="">
+  </a>
+  <nav class="header__menu">
+    <ul class="mb-0">
+      <li>
+        <a (click)="select('LichChieu');emitStatusChild()">Lịch chiếu</a>
+      </li>
+      <li>
+        <a (click)="select('TinTuc');emitStatusChild()">Tin tức</a>
+      </li>
+      <li >
+        <a (click)="select('UngDung');emitStatusChild()">Ứng dụng</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Button trigger modal -->
+  <button *ngIf="isShowDN" type="button" class="login_button" data-toggle="modal" data-target="#modelDangNhap">
+    <i class="fa fa-user-circle"></i>
+    <span>Đăng nhập</span>
+  </button>
+  <button *ngIf="isShowDX" type="button" class="login_button" (click)="signOut()" >
+    
+    <span *ngIf="isShowDX"> {{userName}}</span>
+    <span *ngIf="!isShowDX">Đăng xuất</span>
+    <i class="fa fa-sign-out ml-2" ></i>
+  </button>
+</header>
+<!-- Modal -->
+<div class="modal fade" id="modelDangNhap" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ ModalTitile }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body box">
+        <form *ngIf="isShowFormDN" #formDN="ngForm" (ngSubmit)="handleSignin(formDN.value)">
+          <div class="form-group">
+            <input type="text" name="TaiKhoan" #TaiKhoan="ngModel" placeholder="Tài Khoản" ngModel required
+              class="form-control">
+            <div *ngIf="TaiKhoan.errors && (TaiKhoan.touched || TaiKhoan.dirty)">
+              <p *ngIf="TaiKhoan.errors.required" class="alert alert-danger errors">* vui lòng nhập tài khoản</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" required #MatKhau="ngModel" name="MatKhau" placeholder="Mật Khẩu" ngModel
+              class="form-control">
+            <div *ngIf="MatKhau.errors && (MatKhau.touched || MatKhau.dirty)">
+              <p *ngIf="MatKhau.errors.required" class="alert alert-danger errors">* vui lòng nhập mật khẩu</p>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn_btn" [disabled]="!formDN.valid">Đăng nhập</button>
+            <button type="button" class="btn btn_btn ml-2" (click)="showFormDK()">Đăng Ký</button>
+          </div>
+        </form>
+
+        <form *ngIf="isShowFormDK" #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm.value)">
+          <div class="form-group">
+            <input type="text" name="TaiKhoan" #TaiKhoan="ngModel" placeholder="Tài Khoản" ngModel required
+              class="form-control">
+            <div *ngIf="TaiKhoan.errors && (TaiKhoan.touched || TaiKhoan.dirty)">
+              <p *ngIf="TaiKhoan.errors.required" class="alert alert-danger errors">* vui lòng nhập tài khoản</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" required #MatKhau="ngModel" name="MatKhau" placeholder="Mật Khẩu" ngModel
+              class="form-control">
+            <div *ngIf="MatKhau.errors && (MatKhau.touched || MatKhau.dirty)">
+              <p *ngIf="MatKhau.errors.required" class="alert alert-danger errors">* vui lòng nhập mật khẩu</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text"
+              pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$"
+              required minlength="5" maxlength="20" #HoTen="ngModel" name="HoTen" placeholder="Họ Tên" ngModel
+              class="form-control">
+            <div *ngIf="HoTen.errors && (HoTen.touched || HoTen.dirty)">
+              <p *ngIf="HoTen.errors.required" class="alert alert-danger errors">* vui lòng nhập họ tên</p>
+              <p *ngIf="HoTen.errors.pattern" class="alert alert-danger">* Tên phải là chữ</p>
+              <p *ngIf="HoTen.errors.minlength && !(HoTen.errors.pattern)" class="alert alert-danger">* vui lòng nhập từ
+                5 kí tự trở lên</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" name="Email"
+              #Email="ngModel" required placeholder="Email" ngModel class="form-control">
+            <div *ngIf="Email.errors && (Email.touched || Email.dirty)">
+              <p *ngIf="Email.errors.required" class="alert alert-danger errors">* vui lòng nhập Email</p>
+              <p *ngIf="Email.errors.pattern" class="alert alert-danger">*Email chưa hợp lệ</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" required pattern="^[0]{1}[0-9]{9}" #SoDT="ngModel" name="SoDT" placeholder="SĐT" ngModel class="form-control">
+            <div *ngIf="SoDT.errors && (SoDT.touched || SoDT.dirty)">
+            <p *ngIf="SoDT.errors.required" class="alert alert-danger errors">* vui lòng nhập Số điện thoại</p>
+            <p *ngIf="SoDT.errors.pattern" class="alert alert-danger">*Số điện thoại chưa hợp lệ</p>
+          </div>
+          </div>
+          <!-- <div class="form-group form_select" style="text-align:center">
+            <label for="">Mã nhóm</label>
+            <select class="form-control" [(ngModel)]="MaNhom" name="MaNhom" id="MaNhom" ngModel>
+              <option *ngFor="let Nhom of MangNhom" [value]="Nhom">{{Nhom}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Loại Người Dùng: </label>
+            <input type="radio" name="MaLoaiNguoiDung" ngModel value="QuanTri">Quản trị viên
+            <input type="radio" [(ngModel)]="MaLoaiNguoiDung" checked name="MaLoaiNguoiDung" ngModel value="KhachHang">Khách Hàng
+          </div> -->
+          <div class="form-group text-center">
+            <button type="submit" [disabled]="!signupForm.valid" class="btn btn_btn">Đăng Ký</button>
+            <button type="button" class="btn btn_btn ml-2" (click)="showFormDN()">Đăng nhập</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

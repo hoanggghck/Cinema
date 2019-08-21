@@ -1,0 +1,42 @@
+<div class="mySearch">
+  <div class="row">
+      <div class="film_title" (click)="onClickSearchMenuBar()" >
+        <p *ngIf="titlefilmStatus">Phim</p>
+        <p *ngIf="!titlefilmStatus">{{titlefilm}}</p>
+        <i class="fa fa-chevron-down"></i>
+      </div>
+      <div class="search_content search1" *ngIf="searchStatus">
+          <ul  *ngFor="let phim of DanhSachPhimDangChieu">
+              <li  (click)="onClicktitlefilm(phim)" >
+              {{phim.TenPhim}}
+              </li>
+            </ul>
+      </div>
+   
+     
+      <div class="film_date" (click)="loiNhap()" (click)="LayThongTinPhim(idfilm)" >
+        <p *ngIf="datestatus">Ngày Xem</p>
+        <p *ngIf="!datestatus">{{datefilm| date:'dd/MM'}}</p>
+        <i class="fa fa-chevron-down"></i>
+      </div>
+     
+      
+      <div class="search_content search2" *ngIf="searchStatus2">
+        <ul  *ngFor="let lichchieu of film.LichChieu">
+            <li  (click)="LayDate(lichchieu.NgayChieuGioChieu)" (click)="LayMaLichChieu(lichchieu.MaLichChieu)">
+            {{lichchieu.NgayChieuGioChieu| date:'dd/MM'}}
+            </li>
+          </ul>
+    </div>
+    <div class="button_book" [routerLink]="['/home/trang-dat-ve',idlich]" >
+      <button class="btn ">ĐẶT VÉ NGAY</button>
+    </div>
+      <!-- <div class=" dropdown film_time" >
+        <p >Giờ Chiếu</p>
+        <i class="fa fa-chevron-down"></i>
+      </div> -->
+      
+      
+  </div>
+ 
+</div>

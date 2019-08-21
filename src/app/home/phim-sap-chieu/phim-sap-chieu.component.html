@@ -1,0 +1,14 @@
+<div class="owl-carousel owl-theme">
+    <div class="item" *ngFor="let phim of DanhSachPhimSapChieu">
+        <app-item-phim [Itemphim]=phim (evtTrailer)="showContent($event)"></app-item-phim>
+      </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <button  (click)="close()" data-dismiss="modal">X</button>
+      <iframe class="iframe-youtube" width="600" height="400" [src]="contentModal | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

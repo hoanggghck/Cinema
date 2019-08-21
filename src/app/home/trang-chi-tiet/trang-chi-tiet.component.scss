@@ -1,0 +1,24 @@
+.mydetails{
+    padding: 70px 0;
+    position: relative;
+    // background-image: url('../../../assets/img/backapp.jpg');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center center;
+}
+
+.content_film{
+position: absolute;
+z-index: 10;
+top: 100px;
+left: 0;
+}
+img{
+    height: 100%;
+}
+//reponsive
+@media only screen and (max-width: 845px){
+    .footer{
+        display: none;
+    }
+  }

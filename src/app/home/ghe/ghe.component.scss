@@ -1,0 +1,25 @@
+button{
+    width: 30px;
+    height: 30px;
+}
+button:focus{
+    box-shadow: unset;
+    
+}
+
+.btn_dadat {
+    background-color: green;
+}
+.btn_disable{
+    background-color: black;
+    padding: 2px 5px;
+}
+    
+
+.btn_chuadat{
+    background-color: #cecece;
+}
+img{
+    width: 16px;
+    height: 16px;
+}

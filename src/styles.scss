@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.owl-next span{
+    color: white;
+   
+}
+.owl-prev span{
+    color: white;
+   
+}
+.owl-prev{
+    position: absolute;
+    top:30%;
+    left:-50px;
+    } 
+    .owl-next:hover span{
+    background: none;
+    }
+    .owl-prev span{
+    font-size:70px;
+    }
+    .owl-next{
+    position: absolute;
+    top:30%;
+    right:-50px;
+    } 
+    .owl-next span{
+    font-size:70px;
+    }
+    .owl-prev:focus{
+        outline: none;
+        border: unset;
+
+    }
+    .owl-next:focus{
+        outline: none;
+        border: unset;
+        
+    }
+   //animation 
+   
+    

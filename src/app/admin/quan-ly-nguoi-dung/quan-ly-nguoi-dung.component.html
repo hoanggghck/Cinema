@@ -1,0 +1,213 @@
+<button mat-raised-button data-toggle="modal" data-target="#modalId">Thêm người dùng</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Thêm người dùng</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #signupForm="ngForm" (ngSubmit)="handleSignup(signupForm.value)">
+          <div class="form-group">
+            <input type="text" name="TaiKhoan" #TaiKhoanAdd="ngModel" placeholder="Tài Khoản" ngModel required class="form-control">
+            <div *ngIf="TaiKhoanAdd.errors && (TaiKhoanAdd.touched || TaiKhoanAdd.dirty)">
+              <p *ngIf="TaiKhoanAdd.errors.required" class="alert alert-danger">* vui lòng nhập tài khoản</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" required #MatKhauAdd="ngModel" name="MatKhau" placeholder="Mật Khẩu" ngModel class="form-control">
+            <div *ngIf="MatKhauAdd.errors && (MatKhauAdd.touched || MatKhauAdd.dirty)">
+              <p *ngIf="MatKhauAdd.errors.required" class="alert alert-danger">* vui lòng nhập mật khẩu</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text"
+              pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ \\s]+$"
+              required minlength="5" maxlength="20" #HoTenAdd="ngModel" name="HoTen" placeholder="Họ Tên" ngModel
+              class="form-control">
+            <div *ngIf="HoTenAdd.errors && (HoTenAdd.touched || HoTenAdd.dirty)">
+              <p *ngIf="HoTenAdd.errors.required" class="alert alert-danger ">* vui lòng nhập họ tên</p>
+              <p *ngIf="HoTenAdd.errors.pattern" class="alert alert-danger">* Tên phải là chữ</p>
+              <p *ngIf="HoTenAdd.errors.minlength && !(HoTenAdd.errors.pattern)" class="alert alert-danger">* vui lòng nhập từ
+                5 kí tự trở lên</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" name="Email"
+              #EmailAdd="ngModel" required placeholder="Email" ngModel class="form-control">
+            <div *ngIf="EmailAdd.errors && (EmailAdd.touched || EmailAdd.dirty)">
+              <p *ngIf="EmailAdd.errors.required" class="alert alert-danger ">* vui lòng nhập Email</p>
+              <p *ngIf="EmailAdd.errors.pattern" class="alert alert-danger">*Email chưa hợp lệ</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" required pattern="^[0]{1}[0-9]{9}" #SoDTAdd="ngModel" name="SoDT" placeholder="SĐT" ngModel
+              class="form-control">
+            <div *ngIf="SoDTAdd.errors && (SoDTAdd.touched || SoDTAdd.dirty)">
+              <p *ngIf="SoDTAdd.errors.required" class="alert alert-danger ">* vui lòng nhập Số điện thoại</p>
+              <p *ngIf="SoDTAdd.errors.pattern" class="alert alert-danger">*Số điện thoại chưa hợp lệ</p>
+            </div>
+          </div>
+          <div class="form-group form_select" style="text-align:center">
+            <label for="">Mã nhóm</label>
+            <select class="form-control" [(ngModel)]="MaNhom" name="MaNhom" id="MaNhom" ngModel>
+              <option *ngFor="let Nhom of MangNhom" [value]="Nhom">{{Nhom}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Loại Người Dùng: </label>
+            <input type="radio" name="MaLoaiNguoiDung" ngModel value="QuanTri">Quản trị viên
+            <input type="radio" [(ngModel)]="MaLoaiNguoiDung" checked name="MaLoaiNguoiDung" ngModel
+              value="KhachHang">Khách Hàng
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success">Thêm người dùng</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cập nhật người dùng</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #FormEdit="ngForm" (ngSubmit)="handleEdit(FormEdit.value)">
+          <div class="form-group">
+            <input readonly="readonly" type="text" name="TaiKhoan" placeholder="Tài Khoản" ngModel
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" required #MatKhau="ngModel" name="MatKhau" placeholder="Mật Khẩu" ngModel
+              class="form-control">
+            <div *ngIf="MatKhau.errors && (MatKhau.touched || MatKhau.dirty)">
+              <p *ngIf="MatKhau.errors.required" class="alert alert-danger">* vui lòng nhập mật khẩu</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text"
+              pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ \\s]+$"
+              required minlength="5" maxlength="20" #HoTen="ngModel" name="HoTen" placeholder="Họ Tên" ngModel
+              class="form-control">
+            <div *ngIf="HoTen.errors && (HoTen.touched || HoTen.dirty)">
+              <p *ngIf="HoTen.errors.required" class="alert alert-danger ">* vui lòng nhập họ tên</p>
+              <p *ngIf="HoTen.errors.pattern" class="alert alert-danger">* Tên phải là chữ</p>
+              <p *ngIf="HoTen.errors.minlength && !(HoTen.errors.pattern)" class="alert alert-danger">* vui lòng nhập từ
+                5 kí tự trở lên</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" name="Email"
+              #Email="ngModel" required placeholder="Email" ngModel class="form-control">
+            <div *ngIf="Email.errors && (Email.touched || Email.dirty)">
+              <p *ngIf="Email.errors.required" class="alert alert-danger ">* vui lòng nhập Email</p>
+              <p *ngIf="Email.errors.pattern" class="alert alert-danger">*Email chưa hợp lệ</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" required pattern="^[0]{1}[0-9]{9}" #SoDT="ngModel" name="SoDT" placeholder="SĐT" ngModel
+              class="form-control">
+            <div *ngIf="SoDT.errors && (SoDT.touched || SoDT.dirty)">
+              <p *ngIf="SoDT.errors.required" class="alert alert-danger ">* vui lòng nhập Số điện thoại</p>
+              <p *ngIf="SoDT.errors.pattern" class="alert alert-danger">*Số điện thoại chưa hợp lệ</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Mã nhóm</label>
+            <select class="form-control" name="MaNhom" id="" ngModel>
+              <option>GP01</option>
+              <option>GP02</option>
+              <option>GP09</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Loại Người Dùng: </label>
+            <input type="radio" name="MaLoaiNguoiDung" ngModel value="QuanTri">Quản trị viên
+            <input type="radio" name="MaLoaiNguoiDung" ngModel value="KhachHang">Khách Hàng
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" [disabled]="!FormEdit.valid" class="btn btn-success">Cập nhật</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <mat-form-field class="w-100">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <table mat-table [dataSource]="danhSachNguoiDung" matSort class="w-100 mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="TaiKhoan">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Tài Khoản </th>
+      <td mat-cell *matCellDef="let element"> {{element.TaiKhoan}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MatKhau">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mật Khẩu </th>
+      <td mat-cell *matCellDef="let element"> {{element.MatKhau}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="HoTen">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Họ tên </th>
+      <td mat-cell *matCellDef="let element"> {{element.HoTen}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="SoDT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Số Điện thoại </th>
+      <td mat-cell *matCellDef="let element"> {{element.SoDT}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MaNhom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mã nhóm </th>
+      <td mat-cell *matCellDef="let element"> {{element.MaNhom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MaLoaiNguoiDung">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mã loại người dùng </th>
+      <td mat-cell *matCellDef="let element"> {{element.MaLoaiNguoiDung}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="pl-5">Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="setUser(element)" data-toggle="modal"
+          data-target="#modalEdit">Sửa</button>
+        <button mat-raised-button (click)="XoaNguoiDung(element)" color="warn">Xóa</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5,10, 20, 25,30 ,35]" showFirstLastButtons></mat-paginator>
+</div>

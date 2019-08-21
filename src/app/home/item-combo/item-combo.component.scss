@@ -1,0 +1,67 @@
+.combo_item{
+    height: 40px;
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+}
+.item_img{
+    width: 50px;
+    height: 50px;
+}
+.btn_detail{
+    border: unset;
+    background-color: unset;
+    padding: 0;
+    outline: unset;
+    height: 20px;
+    margin: 5px 10px;
+}
+.btn_detail img{
+    height: 20px;
+    width: 20px;
+}
+.item_button{
+    top: -20px;
+    right: 10px;
+    position: absolute;
+    display: flex;
+}
+.minus:active {
+   color: red;
+}
+.plus:active{
+    color: red;
+}
+.item_button button{
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    padding: 0;
+}
+.minus{
+    font-size: 40px;
+    color: rgb(124, 22, 15);
+}
+.plus{
+    font-size: 30px;
+    color: rgb(124, 22, 15);
+}
+.item_button span{
+    font-size: 25px;
+    margin: 15px  10px 0 10px;
+    border: 0.5px solid rgb(110, 104, 104);
+    height: 35px;
+    width: 35px;
+    padding: 0px 9px;
+}
+.item_content p{
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+.item_content span:last-child {
+    color: green
+}
+.item_button span:first-child {
+    font-size: 2px;
+}

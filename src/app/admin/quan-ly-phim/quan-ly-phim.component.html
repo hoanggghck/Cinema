@@ -1,0 +1,202 @@
+<!-- AddFilm -->
+<button mat-raised-button data-toggle="modal" data-target="#modalAddFilm">Thêm phim</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalAddFilm" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Thêm Phim</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formAddMovie="ngForm" (ngSubmit)="handleAddMovie(formAddMovie.value,hinhAnhAdd.files)">
+          <div class="form-group">
+            <label for="">Tên Phim: </label>
+            <input type="text" required #TenPhimAdd="ngModel" name="TenPhim" ngModel class="form-control">
+            <div *ngIf="TenPhimAdd.errors && (TenPhimAdd.touched ||TenPhimAdd.dirty)">
+              <p *ngIf="TenPhimAdd.errors.required" class="alert alert-danger">* vui lòng nhập tên phim</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Trailer: </label>
+            <input required pattern="^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/watch\?v=([^&]+)"
+              #TrailerAdd="ngModel" type="text" name="Trailer" ngModel class="form-control">
+            <div *ngIf="TrailerAdd.errors && (TrailerAdd.touched ||TrailerAdd.dirty)">
+              <p *ngIf="TrailerAdd.errors.required" class="alert alert-danger">* vui lòng nhập Trailer</p>
+              <p *ngIf="TrailerAdd.errors.pattern" class="alert alert-danger">* Trailer không đúng</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Hình Ảnh: </label>
+            <input type="file" #hinhAnhAdd>
+          </div>
+          <div class="form-group">
+            <label for="">Mô Tả: </label>
+            <input required #MoTaAdd="ngModel" type="text" name="MoTa" ngModel class="form-group">
+            <div *ngIf="MoTaAdd.errors && (MoTaAdd.touched ||MoTaAdd.dirty)">
+              <p *ngIf="MoTaAdd.errors.required" class="alert alert-danger">* vui lòng nhập tên phim</p>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="">Mã Nhóm: </label>
+            <input type="text" name="MaNhom" ngModel class="form-control">
+          </div> -->
+          <div class="form-group">
+            <label for="">Ngày Khởi Chiếu: </label>
+            <input required type="text" pattern="^((0|1)\d{1})-((0|1|2)\d{1})-((19|20)\d{2})" #NgayKhoiChieuAdd=ngModel
+              name="NgayKhoiChieu" ngModel class="form-control">
+            <div *ngIf="NgayKhoiChieuAdd.errors && (NgayKhoiChieuAdd.touched ||NgayKhoiChieuAdd.dirty)">
+              <p *ngIf="NgayKhoiChieuAdd.errors.required" class="alert alert-danger">* vui lòng nhập Ngày khởi chiếu</p>
+              <p *ngIf="NgayKhoiChieuAdd.errors.pattern" class="alert alert-danger">* Ngày khởi chiếu không đúng</p>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="">Đánh Giá: </label>
+            <input type="text" name="DanhGia" ngModel class="form-control">
+          </div> -->
+          <div class="form-group">
+            <button [disabled]="formAddMovie.invalid" class="btn btn-success" type="submit">Thêm phim</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit-Film -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditFilm" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cập nhật phim</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formEditMovie="ngForm" (ngSubmit)="handleEditMovie(formEditMovie.value)">
+
+          <div class="form-group hideTag">
+            <label class="hideTag" for="">Mã Phim: </label>
+            <input type="text" name="MaPhim" ngModel class="form-control hideTag">
+          </div>
+          <div class="form-group">
+            <label for="">Tên Phim: </label>
+            <input type="text" required #TenPhim="ngModel" name="TenPhim" ngModel class="form-control">
+            <div *ngIf="TenPhim.errors && (TenPhim.touched ||TenPhim.dirty)">
+              <p *ngIf="TenPhim.errors.required" class="alert alert-danger">* vui lòng nhập tên phim</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Trailer: </label>
+            <input required pattern="^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/watch\?v=([^&]+)"
+              #Trailer="ngModel" type="text" name="Trailer" ngModel class="form-control">
+            <div *ngIf="Trailer.errors && (Trailer.touched ||Trailer.dirty)">
+              <p *ngIf="Trailer.errors.required" class="alert alert-danger">* vui lòng nhập Trailer</p>
+              <p *ngIf="Trailer.errors.pattern" class="alert alert-danger">* Trailer không đúng</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Mô Tả: </label>
+            <input required #MoTa="ngModel" type="text" name="MoTa" ngModel class="form-group">
+            <div *ngIf="MoTa.errors && (MoTa.touched ||MoTa.dirty)">
+              <p *ngIf="MoTa.errors.required" class="alert alert-danger">* vui lòng nhập tên phim</p>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+                    <label for="">Mã Nhóm: </label>
+                    <input type="text" name="MaNhom" ngModel class="form-control">
+                  </div> -->
+          <div class="form-group">
+            <label for="">Ngày Khởi Chiếu: </label>
+            <input type="text" name="NgayKhoiChieu" ngModel class="form-control">
+          </div>
+          <div class="form-group hideTag">
+            <label for="" class="hideTag">Đánh Giá: </label>
+            <input class="hideTag" type="text" name="DanhGia" ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" [disabled]="formEditMovie.invalid" type="submit">Cập Nhật</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <mat-form-field class="w-100">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <table mat-table [dataSource]="danhSachPhim" matSort class="w-100 mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="MaPhim">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Mã Phim </th>
+      <td mat-cell *matCellDef="let element"> {{element.MaPhim}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TenPhim">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Tên Phim </th>
+      <td mat-cell *matCellDef="let element"> {{element.TenPhim|slicetext:'20'}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="HinhAnh">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hình Ảnh </th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.HinhAnh" class="my-3" alt="" style="width: 200px;height:250px">
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="MoTa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-auto"> Mô Tả </th>
+      <td mat-cell *matCellDef="let element"> {{element.MoTa | slicetext:'10'}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="NgayKhoiChieu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ngày Công Chiếu </th>
+      <td mat-cell *matCellDef="let element"> {{element.NgayKhoiChieu|slicetext:'10'}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="MaNhom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mã nhóm </th>
+      <td mat-cell *matCellDef="let element"> {{element.MaNhom}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="Trailer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">Trailer </th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.Trailer | slicetext:'20'}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="DanhGia">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Đánh Giá </th>
+      <td mat-cell *matCellDef="let element"> {{element.DanhGia}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="pl-5" class="text-center">Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" data-toggle="modal" data-target="#modalEditFilm"
+          (click)="setPhim(element)">Sửa</button>
+        <button mat-raised-button (click)="XoaPhim(element)" color="warn">Xóa</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5,10, 20, 25,30 ,35]" showFirstLastButtons></mat-paginator>
+</div>

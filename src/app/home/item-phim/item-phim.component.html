@@ -1,0 +1,18 @@
+<div class="movie__item item" (mouseover)="showName()" (mouseleave)="hideButton()">
+  <div class="movie_item_img">
+    <img [src]="Itemphim.HinhAnh" alt="" >
+    <button class="movie_play_button" data-toggle="modal" data-target="#modelId" (click)="emitTrailer()">
+      <i class="fa fa-play"></i>
+    </button>
+    <div class="background">
+
+    </div>
+  </div>
+
+  <div class="movie_title" *ngIf="isShowName">
+    <p>{{Itemphim.TenPhim}}</p>
+  </div>
+  <div class="movie_button" *ngIf="isShowButton">
+    <button class="btn btn_booked"  routerLink='trang-chi-tiet/{{Itemphim.MaPhim}}'>Đặt Vé</button>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+.mySearch{
+    position: relative;
+    margin: 0 auto;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+.film_title,.film_date {
+    padding: 5px;
+    cursor: pointer;
+}
+.film_title{
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 400px;
+    height: 100%;
+    justify-content: space-between;
+    background-color: white;
+    left: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+}
+.film_date{
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 200px;
+    height: 100%;
+    justify-content: space-between;
+    background-color: white;
+    left: 400px;
+}
+.mySearch p{
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 20px;
+    color: black;
+}
+.mySearch i{
+    margin-top: 15px;
+    margin-right: 15px;
+    font-size: 20px;
+    color: rgb(85, 82, 82);
+}
+
+.search1{
+    position: absolute;
+    top: 52px;
+    left: 0;
+    height: 200px;
+    overflow-y: auto;
+    width: 600px;
+    background-color: white;
+    border-radius: 5px;
+    
+}
+.search2{
+    position: absolute;
+    top: 55px;
+    left: 400px;
+    height: 200px;
+    overflow-y: auto;
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+}
+.search_content ul{
+    text-decoration: none;
+    list-style: none;
+    
+}
+.search_content ul li{
+   cursor: pointer;  
+}
+.search_content ul li:hover{
+    color: rgb(201, 190, 190);
+ }
+.button_book{
+     position: absolute;
+     top: 0;
+     left:600px;
+     background-color: white;
+     width: 180px;
+     height: 100%;
+     border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+.button_book .btn{
+    margin-left: 50px;
+    background-color: rgb(102, 95, 95);
+    padding: 0;
+    width: 120px;
+    height: 40px;
+    color: white;
+    margin-top: 10px;
+}
+//scrollbar bar
+.scrollbar {
+    background-color: #F5F5F5;
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 22px;
+    margin-top: 40px;
+    width: 65px;
+       overflow-y: scroll;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .4);
+    background-color: #CFCFCF
+}
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5
+}
+::-webkit-scrollbar-thumb {
+    background-color: #2C3E50
+}

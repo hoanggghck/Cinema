@@ -1,0 +1,122 @@
+.movie__item{
+    position: relative;
+ }
+ .movie_item_img img{
+    
+     width: 200px;
+     height:300px;
+ }
+ .movie_button{
+     width: 200px;
+ }
+
+ 
+ .movie_item_img .background{
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color: black;
+     display: none;
+     width: 200px;
+     height: 300px;
+     border-radius: 5px;
+     z-index: 4;
+     
+ }
+ 
+ .movie_title{
+     width: 200px;
+     height: 50px;
+     text-align: center;
+     color: white;
+     font-weight: bold;
+ }
+ .btn_booked{
+     width: 200px
+ }
+ .movie_title p{
+     font-size:18px;
+     margin:15px;
+     font-weight: bold;
+ }
+ .btn_booked{
+     background-color:#fa5238;
+     border:none;
+     padding:10px 20px;
+     color:white;
+     width: 100%;
+     font-size:20px;
+     border-radius: 5px;
+     margin-top:10px;
+ }
+ .movie_play_button{
+     width: 200px;
+ }
+ 
+ .btn_booked:hover{
+     background-color: white;
+     color: #fa5238;
+ }
+ .movie_item_img:hover .movie_play_button{
+     display: block;
+     
+     
+ }
+ .movie_item_img:hover .background{
+     display: block;
+     opacity: .1;
+ }
+ .movie_play_button{
+     position: absolute;
+     top: 33%;
+     left: 0%;
+     display: none;  
+     border: unset;
+     background-color: transparent;
+     outline: none;
+     z-index: 5;
+     
+ }
+   
+ .movie_play_button:hover i{
+     box-shadow: 0 0 16px 0 rgba(255, 255, 255, 0.5);
+ }
+ .movie_play_button i{
+     font-size: 30px;
+     border-radius: 50%;
+     border: solid 1px white;
+     width: 50px;
+     height: 50px;
+     color: white;
+     padding: 9px 15px;
+ }
+ 
+  /* Zoom In #2 */
+  
+ 
+  @media only screen and (max-width: 700px){
+    .movie_item_img img{
+        width: 300px;
+        height:400px;
+        margin-left: 90px;
+    }
+    .movie_title{
+        margin-left: 130px;
+    }
+    .movie_item_img .background{
+        left: 90px;
+        width: 300px;
+        
+    }
+    .movie_play_button{
+        left: 50%;
+        
+
+        
+    }
+    .btn_booked{
+        margin-left: 90px;
+        width: 300px;
+    }
+    
+}

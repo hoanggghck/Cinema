@@ -1,0 +1,56 @@
+<header id="header">
+    <a [routerLink]="['/home']" class="logo">
+      <img src="../../../assets/img/web-logo.png" alt="">
+    </a>
+    <nav class="header__menu" id="header_menu">
+      <ul class="mb-0">
+        <li>
+          <a (click)="scrollToElement('Ghe')">Chọn ghế</a>
+        </li>
+        <li>
+          <a (click)="scrollToElement('Combo')">Chọn Combo</a>
+        </li>
+        <li>
+          <a (click)="scrollToElement('Phim')">Thông tin phim</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="login_button">
+      <span>Xin chào {{userName}}</span>
+    </div>
+  </header> 
+<p class="time"> Thời gian giữ ghế:
+  <span class="text-success">{{phut}}:</span>
+  <span class="text-success">{{giay}}</span>
+</p>
+<div class="myBookingpage" id="Ghe">
+  <div class="myChair" id="Chair">
+    <app-danh-sach-ghe [mangGhe]="DanhSachGhe" (emitTongTienVe)="tongTienVe($event)"></app-danh-sach-ghe>
+  </div>
+
+  <div class="myPay">
+    <div class="pay_total">
+      <h1> {{tongTienDat()}} VNĐ</h1>
+    </div>
+    <div class="movie_details">
+      <div class="row">
+        <div class="movie_img">
+          <img src={{phim.HinhAnh}} alt="">
+        </div>
+        <div class="movie_title">
+          <span>{{phim.NgayKhoiChieu | date: 'dd.MM.yyyy'}}</span>
+          <h1>{{phim.TenPhim}}</h1>
+          <p id="Phim">{{phim.MoTa |slicetext:'100'}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div id="Combo">
+      <app-combo-bap-nuoc (emitTongTienCombo)="tongTienCombo($event)"></app-combo-bap-nuoc>
+    </div>
+
+    <div class="myBooked ">
+      <button class="btn" (click)="layThongTinVe()">Đặt vé</button>
+    </div>
+  </div>
+</div>
